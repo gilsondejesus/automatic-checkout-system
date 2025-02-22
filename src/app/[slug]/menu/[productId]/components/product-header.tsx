@@ -15,11 +15,11 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
   const router = useRouter();
   const handleBackClick = () => router.back();
   return (
-    <div className="relative h-[300px] w-full">
+    <div className="relative min-h-[300px] w-full">
       <Button
         variant="secondary"
         size="icon"
-        className="absolute top-4 left-4 rounded-full z-50"
+        className="absolute left-4 top-4 z-50 rounded-full"
         onClick={handleBackClick}
       >
         <ChevronLeft />
@@ -27,7 +27,7 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
       <Button
         variant="secondary"
         size="icon"
-        className="absolute top-4 right-4 rounded-full z-50"
+        className="absolute right-4 top-4 z-50 rounded-full"
       >
         <ScrollTextIcon />
       </Button>

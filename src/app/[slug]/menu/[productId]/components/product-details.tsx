@@ -112,7 +112,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </ScrollArea>
         </div>
         <Button className="w-full rounded-full" onClick={handleAddToCart}>
-          Adicionar à sacola
+          Adicionar ao carrinho
         </Button>
       </div>
       <CartSheet />

@@ -114,7 +114,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           className="w-full rounded-full lg:mx-auto lg:w-2/4"
           onClick={handleAddToCart}
         >
-          Adicionar à sacola
+          Adicionar ao carrinho
         </Button>
       </div>
 

@@ -1,4 +1,5 @@
 FastOrder 🍟
+
 Uma experiência interativa para pedidos digitais em restaurantes fast-food, utilizando tecnologias modernas para proporcionar praticidade e agilidade.
 
 🚀 Recursos Para Clientes:

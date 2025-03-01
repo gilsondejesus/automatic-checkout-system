@@ -95,7 +95,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             </div>
 
             {/* INGREDIENTES */}
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-3 mb-28">
               <div className="flex items-center gap-1.5">
                 <ChefHatIcon size={16} />
                 <h4 className="text-sm font-semibold">Ingredientes</h4>

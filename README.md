@@ -1,3 +1,25 @@
+FastOrder 🍟
+Uma experiência interativa para pedidos digitais em restaurantes fast-food, utilizando tecnologias modernas para proporcionar praticidade e agilidade.
+
+🚀 Recursos Para Clientes:
+
+✅ Exploração do Cardápio:
+- Acesso rápido às categorias disponíveis.
+- Lista detalhada de itens por categoria.
+- Informações completas sobre cada produto.
+
+✅ Opções de Pedido:
+- Escolha entre retirada ou consumo no local.
+- Interface intuitiva para uma experiência fluida.
+
+🛠️ Tecnologias Utilizadas:
+- Next.js – Framework moderno para aplicações web dinâmicas
+- TypeScript – Código mais seguro e estruturado
+- Prisma – ORM eficiente para gerenciamento de banco de dados
+- React – Interface reativa e otimizada
+- PostgreSQL – Banco de dados robusto para armazenar informações
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

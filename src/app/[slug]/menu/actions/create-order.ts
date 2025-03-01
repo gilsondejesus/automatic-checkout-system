@@ -1,6 +1,7 @@
 "use server";
 
 import { ConsumptionMethod } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 import { db } from "@/lib/prisma";
 
@@ -17,14 +18,14 @@ interface CreateOrderInput {
   slug: string;
 }
 
-export const createrOrder = async (input: CreateOrderInput) => {
+export const createOrder = async (input: CreateOrderInput) => {
   const restaurant = await db.restaurant.findUnique({
     where: {
-      slug: input.slug
-    }
-  })
+      slug: input.slug,
+    },
+  });
   if (!restaurant) {
-    throw new Error ("Restaurant not found");
+    throw new Error("Restaurant not found");
   }
   const productsWithPrices = await db.product.findMany({
     where: {
@@ -43,8 +44,8 @@ export const createrOrder = async (input: CreateOrderInput) => {
   await db.order.create({
     data: {
       status: "PENDING",
-      customerName: removeCpfPunctuation(input.customerCpf),
-      customerCpf: input.customerCpf,
+      customerName: input.customerName,
+      customerCpf: removeCpfPunctuation(input.customerCpf),
       orderProducts: {
         createMany: {
           data: productsWithPricesAndQuantities,
@@ -55,7 +56,8 @@ export const createrOrder = async (input: CreateOrderInput) => {
         0,
       ),
       consumptionMethod: input.consumptionMethod,
-      restaurantId: restaurant.id
+      restaurantId: restaurant.id,
     },
   });
+  redirect(`/${input.slug}/orders`);
 };

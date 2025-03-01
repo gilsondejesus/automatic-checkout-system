@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import { createrOrder } from "../actions/create-order";
+import { createOrder } from "../actions/create-order";
 import { CartContext } from "../contexts/cart";
 import { isValidCpf } from "../helpers/cpf";
 
@@ -76,7 +76,7 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
         "consumptionMethod",
       ) as ConsumptionMethod;
       startTransition(async () => {
-        await createrOrder({
+        await createOrder({
           consumptionMethod,
           customerCpf: data.cpf,
           customerName: data.name,

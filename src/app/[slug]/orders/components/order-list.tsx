@@ -1,6 +1,11 @@
+"use client";
+
 import { OrderStatus, Prisma } from "@prisma/client";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { ChevronLeftIcon, ScrollTextIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,9 +40,17 @@ const getStatusLabel = (status: OrderStatus) => {
 };
 
 const OrderList = ({ orders }: OrderListProps) => {
+  const router = useRouter();
+  const handleBackClick = () => router.back();
+
   return (
     <div className="space-y-6 p-6">
-      <Button size="icon" variant="secondary" className="rounded-full">
+      <Button
+        size="icon"
+        variant="secondary"
+        className="rounded-full"
+        onClick={handleBackClick}
+      >
         <ChevronLeftIcon />
       </Button>
       <div className="flex items-center gap-3">
@@ -47,6 +60,19 @@ const OrderList = ({ orders }: OrderListProps) => {
       {orders.map((order) => (
         <Card key={order.id}>
           <CardContent className="space-y-4 p-5">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-1">
+                <p className="text-sm text-muted-foreground">Pedido #:</p>
+                <span className="text-sm font-semibold">{order.id}</span>
+              </div>
+
+              <time className="flex items-center gap-1 text-xs text-muted-foreground">
+                {format(new Date(order.createdAt), "dd/MMM 'às' HH:mm'hs'", {
+                  locale: ptBR,
+                })}
+              </time>
+            </div>
+            <Separator />
             <div
               className={`text-semibold w-fit rounded-full px-4 py-1 text-gray-600 ${order.status === OrderStatus.FINISHED ? "bg-green-500 text-white" : "bg-gray-300"} `}
             >
